@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Pepper{% endblock %}
+
+{% block content %}
+
+<h1>{{header}}</h1>
+
+<form method="get">
+    <div class="search_bar">
+        <input class="search_input" type="text" name="name" placeholder="name" />
+    </div>
+    <div class="search_button_container">
+        <input class="search_button" type="submit" value="Search" />
+    </div>
+    <a class="button_clear" href="{% url 'pepper_list' %}">Clear Search</a>
+    <a class="button_create" href="{% url 'pepper_create' %}">Add Pepper</a>
+</form>
+<div class="gallery"></div>
+<!-- peppers is what we called the data passing through in views line 23 -->
+{% for pepper in peppers %}
+<a href="{% url 'pepper_detail' pepper.pk %}">
+    <img src="{{pepper.img}}" alt="{{pepper.name}}" />
+</a>
+<div class="pepper_name">
+    <p>{{pepper.common_name}}</p>
+</div>
+{% empty %}
+<div class="empty_message">
+    <p>No peppers avaliable</p>
+</div>
+{% endfor %}
+{% endblock %}

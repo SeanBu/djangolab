@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,6 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}" />
     <title>Peppers - {% block title %}{% endblock %}</title>
 </head>
 
@@ -12,6 +15,7 @@
     <nav class="navbar">
         <a class="navitem" href="/">Home</a>
         <a class="navitem" href="/about">About</a>
+        <a class="navitem" href="/peppers">Peppers</a>
     </nav>
     <div class="body_container">
         {% block content %}{% endblock %}

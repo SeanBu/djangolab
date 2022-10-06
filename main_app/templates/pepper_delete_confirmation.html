@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Are you sure you want to DELETE {{pepper.common_name}}</h1>
+<form method="post">
+    {% csrf_token %}
+    <div class="confirm_buttons">
+        <input type="submit" value="Confirm" />
+        <a href="{% url 'pepper_detail' pepper.pk %}">Cancel</a>
+    </div>
+</form>
+
+{% endblock %}

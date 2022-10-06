@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="detail_img">
+    <img src="{{pepper.img}}" alt="{{pepper.common_name}}" />
+</div>
+<div class="detail_common_name">
+    <h1 class="pepper_name">{{pepper.common_name}}</h1>
+</div>
+<div class="detail_name">
+    <h1 class="pepper_name">{{pepper.name}}</h1>
+</div>
+<div class="detail_origin">
+    <h1 class="pepper_origin">{{pepper.origin}}</h1>
+</div>
+<div class="pepper_scoville">
+    <h1 class="pepper_scoville">{{pepper.scoville}}</h1>
+</div>
+
+<div class="power_buttons">
+    <a href="{% url 'pepper_update' pepper.pk %}" class="edit_button">Edit</a>
+    <a href="/peppers/{{pepper.id}}/delete" class="delete_button">Delete</a>
+</div>
+
+{% endblock %}
